@@ -1,0 +1,5 @@
+{
+  "name": "Personal Finance",
+  "description": "A clean, efficient personal finance tracker built with React, Tailwind CSS, and Supabase. Track your daily, monthly, and yearly expenses with ease.",
+  "requestFramePermissions": []
+}
