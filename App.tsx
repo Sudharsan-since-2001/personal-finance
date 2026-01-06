@@ -5,7 +5,7 @@ import { supabase } from './supabaseClient';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ExpensesPage from './pages/ExpensesPage';
-import Navigation from './components/Navigation';
+import Navigation from './components/navigation';
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
