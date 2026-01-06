@@ -44,7 +44,7 @@ const Login: React.FC = () => {
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-28 h-28 rounded-[40px] overflow-hidden mb-6 shadow-2xl shadow-amber-500/20 border-2 border-amber-500/30 bg-[#ffb800]">
               <img
-                src="/logo.jpg"
+                src="/app-logo.jpg"
                 alt="Logo"
                 className="w-full h-full object-cover"
               />

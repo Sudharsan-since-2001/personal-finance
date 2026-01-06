@@ -31,7 +31,7 @@ const Navigation: React.FC = () => {
       <div className="p-8 hidden md:flex items-center gap-3">
         <div className="w-12 h-12 rounded-xl overflow-hidden border border-amber-500/20 shadow-lg shadow-amber-500/10 bg-amber-400">
           <img
-            src="/logo.jpg"
+            src="/app-logo.jpg"
             alt="User Logo"
             className="w-full h-full object-cover"
           />
@@ -71,7 +71,7 @@ const Navigation: React.FC = () => {
       {/* Mobile Top Bar Logo */}
       <div className="md:hidden flex items-center p-4">
         <div className="w-8 h-8 rounded-lg overflow-hidden mr-3 bg-amber-400">
-          <img src="/logo.jpg" alt="User" className="w-full h-full object-cover" />
+          <img src="/app-logo.jpg" alt="User" className="w-full h-full object-cover" />
         </div>
       </div>
     </nav>
