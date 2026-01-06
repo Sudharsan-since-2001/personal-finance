@@ -1,0 +1,19 @@
+/* Global Styles */
+:root {
+  --background: #0f0f0f;
+  --foreground: #f8fafc;
+  --accent: #f59e0b;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}

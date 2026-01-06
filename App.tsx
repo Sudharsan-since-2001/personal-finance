@@ -5,7 +5,8 @@ import { supabase } from './supabaseClient';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ExpensesPage from './pages/ExpensesPage';
-import Navigation from './components/navigation';
+import Reports from './pages/Reports';
+import Navigation from './components/Navigation';
 
 const App: React.FC = () => {
   const [session, setSession] = useState<any>(null);
@@ -40,17 +41,21 @@ const App: React.FC = () => {
         <main className={`flex-1 overflow-y-auto ${session ? 'p-4 md:p-10' : ''}`}>
           <div className="max-w-7xl mx-auto">
             <Routes>
-              <Route 
-                path="/login" 
-                element={!session ? <Login /> : <Navigate to="/" />} 
+              <Route
+                path="/login"
+                element={!session ? <Login /> : <Navigate to="/" />}
               />
-              <Route 
-                path="/" 
-                element={session ? <Dashboard user={session.user} /> : <Navigate to="/login" />} 
+              <Route
+                path="/"
+                element={session ? <Dashboard user={session.user} /> : <Navigate to="/login" />}
               />
-              <Route 
-                path="/expenses" 
-                element={session ? <ExpensesPage user={session.user} /> : <Navigate to="/login" />} 
+              <Route
+                path="/expenses"
+                element={session ? <ExpensesPage user={session.user} /> : <Navigate to="/login" />}
+              />
+              <Route
+                path="/reports"
+                element={session ? <Reports user={session.user} /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>

@@ -19,6 +19,13 @@ export enum Category {
   GROCERIES = 'Groceries',
   SHOPPING = 'Shopping',
   ENTERTAINMENT = 'Entertainment',
+  CINEMA = 'Cinema',
+  FOOD_DELIVERY = 'Swiggy / Zomato',
+  BEEF = 'Beef',
+  CHICKEN = 'Chicken',
+  FISH = 'Fish',
+  PHARMACY = 'Pharmacy',
+  RECHARGE = 'Recharge',
   OTHER = 'Other'
 }
 
