@@ -86,13 +86,13 @@ export const expenseService = {
       data?.forEach(exp => {
         const amt = Number(exp.amount);
         const dateStr = exp.date;
-        
+
         yearTotal += amt;
-        
+
         if (dateStr === todayStr) {
           todayTotal += amt;
         }
-        
+
         if (dateStr >= firstDayOfMonth) {
           monthTotal += amt;
           dailyMap.set(dateStr, (dailyMap.get(dateStr) || 0) + amt);
@@ -103,12 +103,47 @@ export const expenseService = {
         .map(([date, amount]) => ({ date, amount }))
         .sort((a, b) => a.date.localeCompare(b.date));
 
-      return { 
-        today: todayTotal, 
-        month: monthTotal, 
+      return {
+        today: todayTotal,
+        month: monthTotal,
         year: yearTotal,
         dailyHistory
       };
+    } catch (e) {
+      throw e;
+    }
+  },
+
+  async getCategoryStats(userId: string, month: string) {
+    try {
+      const startOfMonth = `${month}-01`;
+      const nextMonthDate = new Date(startOfMonth);
+      nextMonthDate.setMonth(nextMonthDate.getMonth() + 1);
+      const nextMonth = nextMonthDate.toISOString().split('T')[0];
+
+      const { data, error } = await supabase
+        .from('expenses')
+        .select('amount, category')
+        .eq('user_id', userId)
+        .gte('date', startOfMonth)
+        .lt('date', nextMonth);
+
+      if (error) return handleTableError(error);
+
+      const categoryTotals: Record<string, number> = {};
+      let grandTotal = 0;
+
+      data?.forEach(exp => {
+        const amt = Number(exp.amount);
+        categoryTotals[exp.category] = (categoryTotals[exp.category] || 0) + amt;
+        grandTotal += amt;
+      });
+
+      return Object.entries(categoryTotals).map(([name, value]) => ({
+        name,
+        value,
+        percentage: grandTotal > 0 ? (value / grandTotal) * 100 : 0
+      })).sort((a, b) => b.value - a.value);
     } catch (e) {
       throw e;
     }

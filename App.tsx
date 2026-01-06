@@ -5,7 +5,7 @@ import { supabase } from './supabaseClient';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ExpensesPage from './pages/ExpensesPage';
-import Reports from './pages/Reports';
+import ReportsPage from './pages/ReportsPage';
 import Navigation from './components/Navigation';
 
 const App: React.FC = () => {
@@ -55,7 +55,7 @@ const App: React.FC = () => {
               />
               <Route
                 path="/reports"
-                element={session ? <Reports user={session.user} /> : <Navigate to="/login" />}
+                element={session ? <ReportsPage user={session.user} /> : <Navigate to="/login" />}
               />
             </Routes>
           </div>

@@ -43,9 +43,9 @@ const Login: React.FC = () => {
         <div className="w-full max-w-md">
           <div className="text-center mb-12">
             <div className="inline-flex items-center justify-center w-28 h-28 rounded-[40px] overflow-hidden mb-6 shadow-2xl shadow-amber-500/20 border-2 border-amber-500/30 bg-[#ffb800]">
-              <img 
-                src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=160&h=160&fit=crop" 
-                alt="Logo" 
+              <img
+                src="/logo.jpg"
+                alt="Logo"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -56,13 +56,13 @@ const Login: React.FC = () => {
           <div className="glass-card p-2 rounded-[32px]">
             {/* Toggle Tabs */}
             <div className="flex p-1 bg-white/[0.03] rounded-[24px] mb-4">
-              <button 
+              <button
                 onClick={() => { setIsSignUp(false); setError(null); }}
                 className={`flex-1 py-3 text-xs font-bold rounded-2xl transition-all ${!isSignUp ? 'bg-white/10 text-white shadow-xl' : 'text-zinc-500 hover:text-zinc-400'}`}
               >
                 Sign In
               </button>
-              <button 
+              <button
                 onClick={() => { setIsSignUp(true); setError(null); }}
                 className={`flex-1 py-3 text-xs font-bold rounded-2xl transition-all ${isSignUp ? 'bg-white/10 text-white shadow-xl' : 'text-zinc-500 hover:text-zinc-400'}`}
               >
@@ -127,29 +127,29 @@ const Login: React.FC = () => {
 
       {/* Right Side: Visual Context */}
       <div className="hidden lg:flex flex-1 items-center justify-center p-12 bg-[#1a1a1a]/40 border-l border-white/5">
-         <div className="max-w-md text-center">
-            <h2 className="text-3xl font-bold text-white mb-6">Track Your Wealth in ₹</h2>
-            <div className="space-y-8 text-left">
-               <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                     <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">Real-time Tracking</h4>
-                    <p className="text-zinc-500 text-xs mt-1 leading-relaxed">Instantly see your daily spending trends and stay within your monthly budget goals.</p>
-                  </div>
-               </div>
-               <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
-                     <span className="text-amber-500 font-bold text-xl">₹</span>
-                  </div>
-                  <div>
-                    <h4 className="text-white font-bold text-sm">Localized Currency</h4>
-                    <p className="text-zinc-500 text-xs mt-1 leading-relaxed">All amounts are automatically formatted in Indian Rupees for your convenience.</p>
-                  </div>
-               </div>
+        <div className="max-w-md text-center">
+          <h2 className="text-3xl font-bold text-white mb-6">Track Your Wealth in ₹</h2>
+          <div className="space-y-8 text-left">
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-sm">Real-time Tracking</h4>
+                <p className="text-zinc-500 text-xs mt-1 leading-relaxed">Instantly see your daily spending trends and stay within your monthly budget goals.</p>
+              </div>
             </div>
-         </div>
+            <div className="flex gap-4">
+              <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-amber-500 font-bold text-xl">₹</span>
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-sm">Localized Currency</h4>
+                <p className="text-zinc-500 text-xs mt-1 leading-relaxed">All amounts are automatically formatted in Indian Rupees for your convenience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
