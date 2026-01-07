@@ -1,58 +1,79 @@
 Personal Finance / Spend Tracker
 
-A comprehensive personal finance application designed to help you track expenses, visualize spending habits, and review financial decisions. Developed by Sudharsan.
+A personal finance app built to track daily expenses, understand spending patterns, and reflect on financial decisions over time.
+Built and maintained by Sudharsan.
 
 Features
 
-- Dashboard Overview: Get a quick snapshot of your financial health.
-- Expense Tracking: Easily log and categorize your daily expenses.
-- Detailed Reports: Visualize your spending with interactive charts and graphs using Recharts.
-- Regret Review: Analyze past purchases to reflect on spending choices.
-- Yearly Wrapped: A fun, end-of-year summary of your financial behaviors.
-- Authentication: Secure login and data management powered by Supabase.
-- Mobile Ready: Built with mobile-first design and Capacitor for Android deployment.
+Dashboard Overview
+A simple snapshot of your overall spending and financial status.
+
+Expense Tracking
+Log daily expenses and organize them by category with ease.
+
+Detailed Reports
+Interactive charts and graphs (powered by Recharts) to clearly understand where your money goes.
+
+Regret Review
+Look back at past purchases and analyze spending decisions you wish you had made differently.
+
+Yearly Wrapped
+An end-of-year summary that highlights your spending habits in a fun and meaningful way.
+
+Authentication
+Secure user authentication and data storage using Supabase.
+
+Mobile Ready
+Designed with a mobile-first approach and packaged as an Android app using Capacitor.
 
 Tech Stack
 
-- Frontend: React, TypeScript, Vite
-- Routing: React Router DOM
-- Backend/Auth: Supabase
-- Visualization: Recharts
-- Mobile Framework: Capacitor (Android)
+Frontend: React, TypeScript, Vite
+
+Routing: React Router DOM
+
+Backend & Auth: Supabase
+
+Charts: Recharts
+
+Mobile: Capacitor (Android)
 
 Run Locally
+Prerequisites
 
-Prerequisites: Node.js, npm
+Node.js
 
-1. Clone the repository (if applicable)
+npm
 
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
+Steps
 
-3. Configure Environment:
-   Create a `.env.local` file in the root directory and add your Supabase credentials:
-   ```env
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+Clone the repository (if applicable)
 
-4. Run the development server:
-   ```bash
-   npm run dev
-   ```
+Install dependencies:
+
+npm install
+
+
+Environment setup:
+Create a .env.local file in the root directory and add your Supabase credentials:
+
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+
+Start the development server:
+
+npm run dev
 
 Mobile Development (Android)
 
-This project uses Capacitor to run as a native Android app.
+This project uses Capacitor to run as a native Android application.
 
-1. Sync web assets to native project:
-   ```bash
-   npm run cap:sync
-   ```
+Sync the web build with the native project:
 
-2. Open in Android Studio:
-   ```bash
-   npm run cap:open
-   ```
+npm run cap:sync
+
+
+Open the project in Android Studio:
+
+npm run cap:open
