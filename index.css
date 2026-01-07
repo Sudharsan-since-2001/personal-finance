@@ -1,19 +1,120 @@
-/* Global Styles */
 :root {
   --background: #0f0f0f;
   --foreground: #f8fafc;
+  --text-title: #ffffff;
+  --text-body: #94a3b8;
+  --text-muted: #64748b;
+  --card-bg: rgba(255, 255, 255, 0.03);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --input-bg: rgba(255, 255, 255, 0.05);
+  --input-border: rgba(255, 255, 255, 0.1);
   --accent: #f59e0b;
+  --accent-muted: rgba(245, 158, 11, 0.1);
+  --border: rgba(255, 255, 255, 0.05);
+  --nav-bg: rgba(15, 15, 15, 0.82);
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+}
+
+.light-mode {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --text-title: #0f172a;
+  --text-body: #64748b;
+  --text-muted: #94a3b8;
+  --card-bg: #ffffff;
+  --card-border: #f1f5f9;
+  --input-bg: #f8fafc;
+  --input-border: #e2e8f0;
+  --accent: #2563eb;
+  --accent-muted: rgba(37, 99, 235, 0.1);
+  --border: #f1f5f9;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
 }
 
 body {
   margin: 0;
   padding: 0;
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+/* Custom transitions and mobile helpers */
+.mobile-bottom-nav {
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .chart-container-mobile {
+    height: 300px !important;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+.animate-progress {
+  animation: progress 5s linear forwards;
+}
+
+@keyframes bounce-slow {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Base transitions */
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
 }

@@ -7,6 +7,7 @@ export interface Expense {
   note: string | null;
   date: string;
   created_at: string;
+  is_regret: boolean;
 }
 
 export type ExpenseInsert = Omit<Expense, 'id' | 'created_at' | 'user_id'>;
@@ -26,6 +27,8 @@ export enum Category {
   FISH = 'Fish',
   PHARMACY = 'Pharmacy',
   RECHARGE = 'Recharge',
+  SNACKS = 'Snacks',
+  HOTEL = 'Hotel',
   OTHER = 'Other'
 }
 
@@ -39,4 +42,5 @@ export interface ExpenseStats {
   month: number;
   year: number;
   dailyHistory: DailyTotal[];
+  recentExpenses: Expense[];
 }

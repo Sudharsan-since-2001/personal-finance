@@ -103,11 +103,22 @@ export const expenseService = {
         .map(([date, amount]) => ({ date, amount }))
         .sort((a, b) => a.date.localeCompare(b.date));
 
+      const { data: recentData, error: recentError } = await supabase
+        .from('expenses')
+        .select('*')
+        .eq('user_id', userId)
+        .order('date', { ascending: false })
+        .order('created_at', { ascending: false })
+        .limit(5);
+
+      if (recentError) return handleTableError(recentError);
+
       return {
         today: todayTotal,
         month: monthTotal,
         year: yearTotal,
-        dailyHistory
+        dailyHistory,
+        recentExpenses: recentData as Expense[]
       };
     } catch (e) {
       throw e;
@@ -144,6 +155,66 @@ export const expenseService = {
         value,
         percentage: grandTotal > 0 ? (value / grandTotal) * 100 : 0
       })).sort((a, b) => b.value - a.value);
+    } catch (e) {
+      throw e;
+    }
+  },
+
+  async toggleRegret(id: string, isRegret: boolean) {
+    try {
+      const { error } = await supabase
+        .from('expenses')
+        .update({ is_regret: isRegret })
+        .eq('id', id);
+
+      if (error) return handleTableError(error);
+    } catch (e) {
+      throw e;
+    }
+  },
+
+  async getYearlyStats(userId: string, year: number) {
+    try {
+      const firstDay = `${year}-01-01`;
+      const lastDay = `${year}-12-31`;
+
+      const { data, error } = await supabase
+        .from('expenses')
+        .select('*')
+        .eq('user_id', userId)
+        .gte('date', firstDay)
+        .lte('date', lastDay);
+
+      if (error) return handleTableError(error);
+
+      let totalSpend = 0;
+      let regretTotal = 0;
+      const categoryMap: Record<string, number> = {};
+      const monthlyMap: Record<number, number> = {};
+
+      data?.forEach(exp => {
+        const amt = Number(exp.amount);
+        totalSpend += amt;
+        if (exp.is_regret) regretTotal += amt;
+
+        categoryMap[exp.category] = (categoryMap[exp.category] || 0) + amt;
+
+        const month = new Date(exp.date).getMonth();
+        monthlyMap[month] = (monthlyMap[month] || 0) + amt;
+      });
+
+      const topCategory = Object.entries(categoryMap).sort((a, b) => b[1] - a[1])[0] || ['None', 0];
+      const peakMonth = Object.entries(monthlyMap).sort((a, b) => b[1] - a[1])[0] || [0, 0];
+
+      return {
+        year,
+        totalSpend,
+        regretTotal,
+        topCategory: { name: topCategory[0], amount: topCategory[1] },
+        peakMonth: { month: Number(peakMonth[0]), amount: peakMonth[1] },
+        transactionCount: data?.length || 0,
+        regretCount: data?.filter(e => e.is_regret).length || 0
+      };
     } catch (e) {
       throw e;
     }

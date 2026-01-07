@@ -33,7 +33,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row min-h-screen bg-[#0f0f0f] relative overflow-hidden">
+    <div className="flex flex-col lg:flex-row min-h-screen bg-[var(--background)] relative overflow-hidden text-[var(--foreground)]">
       {/* Background Decorative Glow */}
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-amber-500/5 rounded-full blur-[120px] -mr-96 -mt-96 pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-orange-600/5 rounded-full blur-[100px] -ml-48 -mb-48 pointer-events-none"></div>
@@ -41,30 +41,33 @@ const Login: React.FC = () => {
       {/* Left Side: Auth Form */}
       <div className="flex-1 flex items-center justify-center p-8 relative z-10">
         <div className="w-full max-w-md">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-28 h-28 rounded-[40px] overflow-hidden mb-6 shadow-2xl shadow-amber-500/20 border-2 border-amber-500/30 bg-[#ffb800]">
+          <div className="text-center mb-8 md:mb-12">
+            <div className="inline-flex items-center justify-center w-20 h-20 md:w-28 md:h-28 rounded-[30px] md:rounded-[40px] overflow-hidden mb-6 shadow-2xl shadow-amber-500/20 border-2 border-amber-500/30 bg-[#ffb800]">
               <img
                 src="/app-logo.jpg"
                 alt="Logo"
                 className="w-full h-full object-cover"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = 'https://ui-avatars.com/api/?name=Spend+Tracker&background=f59e0b&color=fff';
+                }}
               />
             </div>
-            <h1 className="text-4xl font-bold text-white tracking-tighter mb-2">Spend Tracker</h1>
-            <p className="text-zinc-500 text-sm font-medium">Simple. Private. Personal.</p>
+            <h1 className="text-3xl md:text-4xl font-bold text-[var(--text-title)] tracking-tighter mb-2">Spend Tracker</h1>
+            <p className="text-[var(--text-muted)] text-xs md:text-sm font-medium">Simple. Private. Personal.</p>
           </div>
 
           <div className="glass-card p-2 rounded-[32px]">
             {/* Toggle Tabs */}
-            <div className="flex p-1 bg-white/[0.03] rounded-[24px] mb-4">
+            <div className="flex p-1 bg-[var(--input-bg)] rounded-[24px] mb-4">
               <button
                 onClick={() => { setIsSignUp(false); setError(null); }}
-                className={`flex-1 py-3 text-xs font-bold rounded-2xl transition-all ${!isSignUp ? 'bg-white/10 text-white shadow-xl' : 'text-zinc-500 hover:text-zinc-400'}`}
+                className={`flex-1 py-3 text-xs font-bold rounded-2xl transition-all ${!isSignUp ? 'bg-[var(--card-bg)] text-[var(--text-title)] shadow-sm' : 'text-[var(--text-muted)] hover:text-[var(--text-title)]'}`}
               >
                 Sign In
               </button>
               <button
                 onClick={() => { setIsSignUp(true); setError(null); }}
-                className={`flex-1 py-3 text-xs font-bold rounded-2xl transition-all ${isSignUp ? 'bg-white/10 text-white shadow-xl' : 'text-zinc-500 hover:text-zinc-400'}`}
+                className={`flex-1 py-3 text-xs font-bold rounded-2xl transition-all ${isSignUp ? 'bg-[var(--card-bg)] text-[var(--text-title)] shadow-sm' : 'text-[var(--text-muted)] hover:text-[var(--text-title)]'}`}
               >
                 Sign Up
               </button>
@@ -76,7 +79,7 @@ const Login: React.FC = () => {
                   <label className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em] px-1">Email Address</label>
                   <input
                     type="email" required
-                    className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-2xl focus:ring-1 focus:ring-amber-500/50 outline-none transition-all placeholder:text-zinc-600"
+                    className="w-full px-5 py-4 bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-title)] rounded-2xl focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-[var(--text-muted)]"
                     placeholder="you@email.com"
                     value={email} onChange={(e) => setEmail(e.target.value)}
                   />
@@ -86,7 +89,7 @@ const Login: React.FC = () => {
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"} required
-                      className="w-full px-5 py-4 bg-white/5 border border-white/10 text-white rounded-2xl focus:ring-1 focus:ring-amber-500/50 outline-none transition-all placeholder:text-zinc-600"
+                      className="w-full px-5 py-4 bg-[var(--input-bg)] border border-[var(--input-border)] text-[var(--text-title)] rounded-2xl focus:ring-1 focus:ring-accent outline-none transition-all placeholder:text-[var(--text-muted)]"
                       placeholder="••••••••"
                       value={password} onChange={(e) => setPassword(e.target.value)}
                     />
@@ -126,17 +129,17 @@ const Login: React.FC = () => {
       </div>
 
       {/* Right Side: Visual Context */}
-      <div className="hidden lg:flex flex-1 items-center justify-center p-12 bg-[#1a1a1a]/40 border-l border-white/5">
+      <div className="hidden lg:flex flex-1 items-center justify-center p-12 bg-[var(--nav-bg)] border-l border-[var(--border)]">
         <div className="max-w-md text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Track Your Wealth in ₹</h2>
+          <h2 className="text-3xl font-bold text-[var(--text-title)] mb-6">Track Your Wealth in ₹</h2>
           <div className="space-y-8 text-left">
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center flex-shrink-0">
                 <svg className="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
               </div>
               <div>
-                <h4 className="text-white font-bold text-sm">Real-time Tracking</h4>
-                <p className="text-zinc-500 text-xs mt-1 leading-relaxed">Instantly see your daily spending trends and stay within your monthly budget goals.</p>
+                <h4 className="text-[var(--text-title)] font-bold text-sm">Real-time Tracking</h4>
+                <p className="text-[var(--text-muted)] text-xs mt-1 leading-relaxed">Instantly see your daily spending trends and stay within your monthly budget goals.</p>
               </div>
             </div>
             <div className="flex gap-4">
@@ -144,8 +147,8 @@ const Login: React.FC = () => {
                 <span className="text-amber-500 font-bold text-xl">₹</span>
               </div>
               <div>
-                <h4 className="text-white font-bold text-sm">Localized Currency</h4>
-                <p className="text-zinc-500 text-xs mt-1 leading-relaxed">All amounts are automatically formatted in Indian Rupees for your convenience.</p>
+                <h4 className="text-[var(--text-title)] font-bold text-sm">Localized Currency</h4>
+                <p className="text-[var(--text-muted)] text-xs mt-1 leading-relaxed">All amounts are automatically formatted in Indian Rupees for your convenience.</p>
               </div>
             </div>
           </div>
