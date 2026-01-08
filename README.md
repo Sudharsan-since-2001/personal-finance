@@ -1,79 +1,90 @@
-Personal Finance / Spend Tracker
+Here’s a more natural, human-written version that reads like a polished project description or README, while keeping everything clear and professional:
 
-A personal finance app built to track daily expenses, understand spending patterns, and reflect on financial decisions over time.
-Built and maintained by Sudharsan.
+---
 
-Features
+## Personal Finance / Spend Tracker
 
-Dashboard Overview
-A simple snapshot of your overall spending and financial status.
+Personal Finance is a simple and thoughtful expense-tracking app designed to help you stay aware of your daily spending, identify patterns, and reflect on your financial decisions over time. The app is built and maintained by **Sudharsan**, with a focus on clarity, usability, and long-term financial awareness.
 
-Expense Tracking
-Log daily expenses and organize them by category with ease.
+### Features
 
-Detailed Reports
-Interactive charts and graphs (powered by Recharts) to clearly understand where your money goes.
+**Dashboard Overview**
+Get a quick snapshot of your overall spending and current financial status at a glance.
 
-Regret Review
-Look back at past purchases and analyze spending decisions you wish you had made differently.
+**Expense Tracking**
+Log daily expenses effortlessly and organize them by category to keep your records clean and meaningful.
 
-Yearly Wrapped
-An end-of-year summary that highlights your spending habits in a fun and meaningful way.
+**Detailed Reports**
+Visualize your spending with interactive charts and graphs powered by Recharts, making it easy to see where your money goes.
 
-Authentication
-Secure user authentication and data storage using Supabase.
+**Regret Review**
+Revisit past purchases and reflect on spending decisions you wish you had handled differently—designed to encourage smarter future choices.
 
-Mobile Ready
-Designed with a mobile-first approach and packaged as an Android app using Capacitor.
+**Yearly Wrapped**
+An end-of-year summary that highlights your spending habits in a fun, insightful way.
 
-Tech Stack
+**Authentication**
+Secure user authentication and data storage handled through Supabase.
 
-Frontend: React, TypeScript, Vite
+**Mobile Ready**
+Built with a mobile-first approach and packaged as an Android app using Capacitor.
 
-Routing: React Router DOM
+---
 
-Backend & Auth: Supabase
+### Tech Stack
 
-Charts: Recharts
+* **Frontend:** React, TypeScript, Vite
+* **Routing:** React Router DOM
+* **Backend & Authentication:** Supabase
+* **Charts:** Recharts
+* **Mobile:** Capacitor (Android)
 
-Mobile: Capacitor (Android)
+---
 
-Run Locally
-Prerequisites
+### Running the Project Locally
 
-Node.js
+#### Prerequisites
 
-npm
+* Node.js
+* npm
 
-Steps
+#### Setup Steps
 
-Clone the repository (if applicable)
+1. Clone the repository (if applicable).
+2. Install dependencies:
 
-Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env.local` file in the root directory and add your Supabase credentials:
 
-npm install
+   ```env
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+4. Start the development server:
 
+   ```bash
+   npm run dev
+   ```
 
-Environment setup:
-Create a .env.local file in the root directory and add your Supabase credentials:
+---
 
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-
-Start the development server:
-
-npm run dev
-
-Mobile Development (Android)
+### Mobile Development (Android)
 
 This project uses Capacitor to run as a native Android application.
 
-Sync the web build with the native project:
+1. Sync the web build with the native project:
 
-npm run cap:sync
+   ```bash
+   npm run cap:sync
+   ```
+2. Open the project in Android Studio:
 
+   ```bash
+   npm run cap:open
+   ```
 
-Open the project in Android Studio:
+---
 
-npm run cap:open
+If you want, I can also rewrite this to sound more **casual**, **portfolio-focused**, or **startup-style**.
