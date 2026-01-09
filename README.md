@@ -1,90 +1,79 @@
-Here’s a more natural, human-written version that reads like a polished project description or README, while keeping everything clear and professional:
+Personal Finance / Spend Tracker
 
----
+Personal Finance is a clean and intuitive expense tracking application built to help users understand their spending habits, track daily expenses, and make better financial decisions over time. The focus is on simplicity, clarity, and long-term awareness rather than complex financial jargon.
 
-## Personal Finance / Spend Tracker
+The project is designed, built, and maintained by Sudharsan, with an emphasis on usability and practical personal finance insights.
 
-Personal Finance is a simple and thoughtful expense-tracking app designed to help you stay aware of your daily spending, identify patterns, and reflect on your financial decisions over time. The app is built and maintained by **Sudharsan**, with a focus on clarity, usability, and long-term financial awareness.
+Key Features
 
-### Features
+Dashboard Overview
+A clear snapshot of your current financial status, showing total spending and key trends at a glance.
 
-**Dashboard Overview**
-Get a quick snapshot of your overall spending and current financial status at a glance.
+Expense Tracking
+Quickly log daily expenses and organize them into meaningful categories for better clarity.
 
-**Expense Tracking**
-Log daily expenses effortlessly and organize them by category to keep your records clean and meaningful.
+Detailed Reports
+Interactive charts and visual reports powered by Recharts help you understand where your money is going.
 
-**Detailed Reports**
-Visualize your spending with interactive charts and graphs powered by Recharts, making it easy to see where your money goes.
+Regret Review
+A reflective feature that lets you review past purchases and mark expenses you wish you had avoided, encouraging smarter future spending.
 
-**Regret Review**
-Revisit past purchases and reflect on spending decisions you wish you had handled differently—designed to encourage smarter future choices.
+Yearly Wrapped
+An annual summary that highlights spending patterns and habits in a simple, engaging format.
 
-**Yearly Wrapped**
-An end-of-year summary that highlights your spending habits in a fun, insightful way.
+Authentication
+Secure user authentication and data management handled through Supabase.
 
-**Authentication**
-Secure user authentication and data storage handled through Supabase.
+Mobile Ready
+Built with a mobile-first approach and packaged as an Android application using Capacitor.
 
-**Mobile Ready**
-Built with a mobile-first approach and packaged as an Android app using Capacitor.
+Tech Stack
 
----
+Frontend: React, TypeScript, Vite
 
-### Tech Stack
+Routing: React Router DOM
 
-* **Frontend:** React, TypeScript, Vite
-* **Routing:** React Router DOM
-* **Backend & Authentication:** Supabase
-* **Charts:** Recharts
-* **Mobile:** Capacitor (Android)
+Backend & Authentication: Supabase
 
----
+Charts: Recharts
 
-### Running the Project Locally
+Mobile: Capacitor (Android)
 
-#### Prerequisites
+Running the Project Locally
+Prerequisites
 
-* Node.js
-* npm
+Node.js
 
-#### Setup Steps
+npm
 
-1. Clone the repository (if applicable).
-2. Install dependencies:
+Setup
 
-   ```bash
-   npm install
-   ```
-3. Create a `.env.local` file in the root directory and add your Supabase credentials:
+Clone the repository.
 
-   ```env
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
-4. Start the development server:
+Install dependencies:
 
-   ```bash
-   npm run dev
-   ```
+npm install
 
----
 
-### Mobile Development (Android)
+Create a .env.local file in the root directory and add your Supabase credentials:
+
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+
+Start the development server:
+
+npm run dev
+
+Mobile Development (Android)
 
 This project uses Capacitor to run as a native Android application.
 
-1. Sync the web build with the native project:
+Sync the web build with the native Android project:
 
-   ```bash
-   npm run cap:sync
-   ```
-2. Open the project in Android Studio:
+npm run cap:sync
 
-   ```bash
-   npm run cap:open
-   ```
 
----
+Open the project in Android Studio:
 
-If you want, I can also rewrite this to sound more **casual**, **portfolio-focused**, or **startup-style**.
+npm run cap:open
