@@ -4,7 +4,7 @@ Personal Finance is a clean and intuitive expense tracking application built to 
 
 The project is designed, built, and maintained by Sudharsan, with an emphasis on usability and practical personal finance insights.
 
-Key Features
+Key Features:
 
 Dashboard Overview
 A clear snapshot of your current financial status, showing total spending and key trends at a glance.
